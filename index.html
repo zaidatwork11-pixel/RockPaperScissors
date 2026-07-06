@@ -58,7 +58,12 @@
             playRound(humanSelection, computerSelection);
             playRound(humanSelection, computerSelection);
             playRound(humanSelection, computerSelection);
-
+            if (humanScore > computerScore)
+                console.log("You Won!!");
+            else if (humanScore < computerScore)
+                console.log("You lose!");
+            else
+                console.log("Tie!");
         }
     </script>
     <p>hey you, focus on the JS</p>
