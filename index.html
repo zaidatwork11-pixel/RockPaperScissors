@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function getComputerChoice(max = 3)
-        {
+        function getComputerChoice(max = 3) {
             let comChoice;
-            let random = Math.floor(Math.random() * max); 
-            if (random  == 0)
+            let random = Math.floor(Math.random() * max);
+            if (random == 0)
                 comChoice = "rock";
             else if (random == 1)
                 comChoice = "paper";
@@ -19,35 +20,42 @@
                 comChoice = "scissors";
             return comChoice;
         }
-        function getHumanChoice()
-        {
-            let huChoice ;
+        function getHumanChoice() {
+            let huChoice;
             huChoice = prompt("Whats's your choice");
             return huChoice.toLowerCase();
         }
-        let humanScore = 0;
-        let comScore = 0;
+        function playGame() {
+            let humanScore = 0;
+            let comScore = 0;
 
-        function playRound(humanChoice, computerChoice) {
-        if (humanChoice === computerChoice) {
-            console.log(`It's a tie! Both chose ${humanChoice}.`);
-        } 
-        // Check only the 3 ways the Human can win
-        else if (
-            (humanChoice === "rock" && computerChoice === "scissors") ||
-            (humanChoice === "paper" && computerChoice === "rock") ||
-            (humanChoice === "scissors" && computerChoice === "paper")
-        ) {
-            humanScore++;
-            console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
-        } 
-        // If it's not a tie and you didn't win, you lost!
-        else {
-            comScore++;
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+            function playRound(humanChoice, computerChoice) {
+                if (humanChoice === computerChoice) {
+                    console.log(`It's a tie! Both chose ${humanChoice}.`);
+                }
+                // Check only the 3 ways the Human can win
+                else if (
+                    (humanChoice === "rock" && computerChoice === "scissors") ||
+                    (humanChoice === "paper" && computerChoice === "rock") ||
+                    (humanChoice === "scissors" && computerChoice === "paper")
+                ) {
+                    humanScore++;
+                    console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+                }
+                // If it's not a tie and you didn't win, you lost!
+                else {
+                    comScore++;
+                    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+                }
+
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+
+                playRound(humanSelection, computerSelection);
+            }
         }
-}
     </script>
     <p>hey you focus on the JS</p>
 </body>
+
 </html>
