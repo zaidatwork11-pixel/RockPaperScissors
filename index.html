@@ -25,18 +25,28 @@
             huChoice = prompt("Whats's your choice");
             return huChoice.toLowerCase();
         }
-        const humanScore = 0;
-        const comScore = 0;
-        function playRound(humanChoice, computerChoice)
-        {
-            if (humanChoice == "rock" && comChoice == "paper")
-            {
-                comScore++;
-                console.log("You lose, paper beats rock");
-            }
-            
+        let humanScore = 0;
+        let comScore = 0;
+
+        function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            console.log(`It's a tie! Both chose ${humanChoice}.`);
+        } 
+        // Check only the 3 ways the Human can win
+        else if (
+            (humanChoice === "rock" && computerChoice === "scissors") ||
+            (humanChoice === "paper" && computerChoice === "rock") ||
+            (humanChoice === "scissors" && computerChoice === "paper")
+        ) {
+            humanScore++;
+            console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        } 
+        // If it's not a tie and you didn't win, you lost!
+        else {
+            comScore++;
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
         }
-        
+}
     </script>
     <p>hey you focus on the JS</p>
 </body>
