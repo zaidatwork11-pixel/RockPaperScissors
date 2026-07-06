@@ -28,7 +28,10 @@
         function playGame() {
             let humanScore = 0;
             let comScore = 0;
-            function playRound(humanChoice, computerChoice) {
+            let roundNo = 0 ;
+            function playRound(humanChoice, computerChoice) 
+            {
+                roundNo++;
                 if (humanChoice === computerChoice) {
                     console.log(`It's a tie! Both chose ${humanChoice}.`);
                 }
@@ -47,6 +50,7 @@
                     console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
                 }
                 // again call for the choices for the next match
+                if (roundNo < 5)
                 humanSelection = getHumanChoice();
                 computerSelection = getComputerChoice();
 
@@ -58,13 +62,14 @@
             playRound(humanSelection, computerSelection);
             playRound(humanSelection, computerSelection);
             playRound(humanSelection, computerSelection);
-            if (humanScore > computerScore)
+            if (humanScore > comScore)
                 console.log("You Won!!");
             else if (humanScore < computerScore)
                 console.log("You lose!");
             else
                 console.log("Tie!");
         }
+        playGame();
     </script>
     <p>hey you, focus on the JS</p>
 </body>
