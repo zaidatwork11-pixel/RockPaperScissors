@@ -12,25 +12,32 @@
             let comChoice;
             let random = Math.floor(Math.random() * max); 
             if (random  == 0)
-                comChoice = "Rock";
+                comChoice = "rock";
             else if (random == 1)
-                comChoice = "Paper";
+                comChoice = "paper";
             else if (random == 2)
-                comChoice = "Scissors";
+                comChoice = "scissors";
             return comChoice;
         }
         function getHumanChoice()
         {
             let huChoice ;
             huChoice = prompt("Whats's your choice");
-            return huChoice;
+            return huChoice.toLowerCase();
         }
-        let seeScore = prompt("Do you want to see the score");
-        // let score = 0;
-        // if (seeScore)
-        //     alert;
+        const humanScore = 0;
+        const comScore = 0;
+        function playRound(humanChoice, computerChoice)
+        {
+            if (humanChoice == "rock" && comChoice == "paper")
+            {
+                comScore++;
+                console.log("You lose, paper beats rock");
+            }
+            
+        }
         
     </script>
-    <p>hey cannot u read me</p>
+    <p>hey you focus on the JS</p>
 </body>
 </html>
